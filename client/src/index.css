@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-brand-50: #f5f7fa;
+  --color-brand-100: #eaeef4;
+  --color-brand-200: #d0dae5;
+  --color-brand-300: #a7bccc;
+  --color-brand-400: #7797b0;
+  --color-brand-500: #567995;
+  --color-brand-600: #436079;
+  --color-brand-700: #384f64;
+  --color-brand-800: #314354;
+  --color-brand-900: #2c3b4b;
+  --color-brand-950: #1b2530;
+}
+
+/* Global Base Styles */
+body {
+  background-color: #f8fafc; /* slate-50 */
+  color: #1e293b; /* slate-800 */
+  transition-property: color, background-color;
+  transition-duration: 300ms;
+}
+
+body.dark {
+  background-color: #020617; /* slate-950 */
+  color: #f8fafc; /* slate-100 */
+}
+
+/* Glassmorphism Styles */
+.glass {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+body.dark .glass {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.04);
+}
+
+body.dark .glass-card {
+  background: rgba(30, 41, 59, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-duration: 150ms;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: #334155;
+}
+
+/* Hide default input styles */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
